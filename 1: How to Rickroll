@@ -1,0 +1,14 @@
+const http = require("http");
+const fs = require("fs");
+
+http.createServer((request, response) => {
+
+    response.setHeader("Content-Type", "video/mp4")
+
+    fs.readFile("rickroll.mp4", (err, data) => {
+        response.statusCode = 200;
+        response.write(data);
+        response.end();
+    })
+
+}).listen(81); // RECOMMENDED TO USE PORT 80
